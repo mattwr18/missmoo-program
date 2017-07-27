@@ -1,0 +1,48 @@
+.header {
+padding: 150px 0 50px 0;
+}
+li button {
+  margin: 10px;
+}
+.nav-item {
+  color: white;
+  padding-left: 20px;
+}
+.profit {
+  font-weight: bold;
+  color: #20a2ff;
+  font-size: 20px;
+  padding: 0 25px 0 10px;
+
+}
+.stock {
+  font-weight: bold;
+  color: #20a2ff;
+  font-size: 20px;
+  padding: 0 25px 0 10px;
+
+}
+#brand {
+  color: #20f3ff;
+  margin: -50px 50px 0 100px;
+}
+body {
+  background-color: black;
+  background: url('https://s22.postimg.org/mtkq8p58h/hot-chocolate.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  height: 100%;
+}
+.hidden-btns {
+  max-width: 200px;
+  margin: 20px 0 0 95px;
+}
+#coconutBtn, #almondBtn {
+  margin-left: 130px;
+}
+#questions {
+  margin-top: 150px;
+  color: #0783ff;
+}
