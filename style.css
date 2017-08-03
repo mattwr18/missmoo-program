@@ -35,9 +35,8 @@ body {
   -o-background-size: cover;
   height: 100%;
 }
-.hidden-btns {
-  max-width: 200px;
-  margin: 20px 0 0 95px;
+.btn-clicked {
+  background-color: green;
 }
 #coconutBtn, #almondBtn {
   margin-left: 130px;
@@ -45,4 +44,12 @@ body {
 #questions {
   margin-top: 150px;
   color: #0783ff;
+}
+input {
+  margin: 0 0 0 250px;
+}
+#submitBtn {
+  margin: 1px 0 0 220px;
+  padding: 4px;
+  background-color: dodgerblue;
 }
