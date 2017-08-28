@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  var storage = JSON.parse(localStorage.matt);
+  var storage = JSON.parse(localStorage.missmoo);
   var findPeanut = storage.find(function(key) {
     return key.name === "Peanut"});
     var findSunflower = storage.find(function(key) {
@@ -12,6 +12,13 @@ $(document).ready(function () {
             return key.name === "Coconut"});
             var findAlmond = storage.find(function(key) {
               return key.name === "Almond"});
+              var findSmoothies = storage.find(function(key) {
+                return key.name === "Smoothies"});
+                var findBottles = storage.find(function(key) {
+                  return key.name === "Bottles"});
+                  var findDessert = storage.find(function(key){
+                    return key.name === "Dessert"});
+
               var $btnClicked = "";
               var questionProfit = "What were the total sales/expenses for this week";
               var questionStock = "How much product did you use/purchase this week?";
@@ -21,6 +28,8 @@ $(document).ready(function () {
               $("#cashew").html(findCashew.name + ":<br>" + findCashew.profit);
               $("#coconut").html(findCoconut.name + ":<br>" + findCoconut.profit);
               $("#almond").html(findAlmond.name + ":<br>" + findAlmond.profit);
+              $("#smoothies").html(findSmoothies.name + ":<br>" + findSmoothies.profit);
+              $("#dessert").html(findDessert.name + ":<br>" + findDessert.profit);
 
               $("#peanutStock").html(findPeanut.name + ":<br>" + findPeanut.stock);
               $("#sunflowerStock").html(findSunflower.name + ":<br>" + findSunflower.stock);
@@ -28,6 +37,7 @@ $(document).ready(function () {
               $("#cashewStock").html(findCashew.name + ":<br>" + findCashew.stock);
               $("#coconutStock").html(findCoconut.name + ":<br>" + findCoconut.stock);
               $("#almondStock").html(findAlmond.name + ":<br>" + findAlmond.stock);
+              $("#bottleStock").html(findBottles.name + ":<br>" + findBottles.stock);
 
               $("#peanut").click(function (){
                 afterBtnClick(this, questionProfit);
@@ -53,31 +63,44 @@ $(document).ready(function () {
                 afterBtnClick(this, questionProfit);
                 $btnClicked = "Almond";
               });
+              $("#smoothies").click(function(){
+                afterBtnClick(this, questionProfit);
+                $btnClicked = "Smoothies";
+              });
+              $("#dessert").click(function(){
+                afterBtnClick(this, questionProfit);
+                $btnClicked = "Dessert";
+              });
+
               $("#peanutStock").click(function(){
                 afterBtnClick(this, questionStock);
-                $btnClicked = "PeanutStock";
+                $btnClicked = "peanutStock";
               });
               $("#sunflowerStock").click(function(){
                 afterBtnClick(this, questionStock);
-                $btnClicked = "SunflowerStock";
+                $btnClicked = "sunflowerStock";
               });
               $("#yamStock").click(function(){
                 afterBtnClick(this, questionStock);
-                $btnClicked = "YamStock";
+                $btnClicked = "yamStock";
               });
               $("#cashewStock").click(function(){
                 afterBtnClick(this, questionStock);
-                $btnClicked = "CashewStock";
+                $btnClicked = "cashewStock";
               });
               $("#coconutStock").click(function(){
                 afterBtnClick(this, questionStock);
-                $btnClicked = "CoconutStock";
+                $btnClicked = "coconutStock";
               });
               $("#almondStock").click(function(){
                 afterBtnClick(this, questionStock);
-                $btnClicked = "AlmondStock";
+                $btnClicked = "almondStock";
               });
-
+              $("#bottleStock").click(function(){
+                afterBtnClick(this, questionStock);
+                $btnClicked = "bottleStock";
+              });
+              sumProfit();
               $("#submitBtn").click(function () {
                 var submit = $("#number-input").val();
                     $("#number-input").val(0);
@@ -118,54 +141,79 @@ $(document).ready(function () {
                     $("#almond").removeClass("btn-danger");
 
                     break;
-                    case "PeanutStock":
+                    case "Smoothies":
+                    findSmoothies.profit += Number(submit);
+                    $("#smoothies").html(findSmoothies.name + ":<br>" + findSmoothies.profit);
+                    $("#smoothies").removeClass("btn-danger");
+
+                    break;
+                    case "Dessert":
+                    findDessert.profit += Number(submit);
+                    $("#dessert").html(findDessert.name + ":<br>" + findDessert.profit);
+                    $("#dessert").removeClass("btn-danger");
+
+                    break;
+                    case "peanutStock":
                     findPeanut.stock += Number(submit);
                     $("#peanutStock").html(findPeanut.name + ":<br>" + findPeanut.stock);
                     $("#peanutStock").removeClass("btn-danger");
 
                     break;
-                    case "SunflowerStock":
+                    case "sunflowerStock":
                     findSunflower.stock += Number(submit);
                     $("#sunflowerStock").html(findSunflower.name + ":<br>" + findSunflower.stock);
                     $("#sunflowerStock").removeClass("btn-danger");
 
                     break;
-                    case "YamStock":
+                    case "yamStock":
                     findYam.stock += Number(submit);
                     $("#yamStock").html(findYam.name + ":<br>" + findYam.stock);
                     $("#yamStock").removeClass("btn-danger");
 
                     break;
-                    case "CashewStock":
+                    case "cashewStock":
                     findCashew.stock += Number(submit);
                     $("#cashewStock").html(findCashew.name + ":<br>" + findCashew.stock);
                     $("#cashewStock").removeClass("btn-danger");
 
                     break;
-                    case "CoconutStock":
+                    case "coconutStock":
                     findCoconut.stock += Number(submit);
                     $("#coconutStock").html(findCoconut.name + ":<br>" + findCoconut.stock);
                     $("#coconutStock").removeClass("btn-danger");
 
                     break;
-                    case "AlmondStock":
+                    case "almondStock":
                     findAlmond.stock += Number(submit);
                     $("#almondStock").html(findAlmond.name + ":<br>" + findAlmond.stock);
                     $("#almondStock").removeClass("btn-danger");
 
                     break;
+                    case "bottleStock":
+                    findBottles.stock += Number(submit);
+                    $("#bottleStock").html(findBottles.name + ":<br>" + findBottles.stock);
+                    $("#bottleStock").removeClass("btn-danger");
+
+                    break;
 
                     default: alert("OH NO!!");
                   }
+
+
 //Save data to localStorage
                   var productsArray = [];
-                  productsArray.push(findPeanut)
-                  productsArray.push(findYam)
-                  productsArray.push(findAlmond)
-                  productsArray.push(findCoconut)
-                  productsArray.push(findSunflower)
+                  productsArray.push(findPeanut);
+                  productsArray.push(findSunflower);
+                  productsArray.push(findYam);
                   productsArray.push(findCashew);
-                  localStorage.setItem("matt", JSON.stringify(productsArray));
+                  productsArray.push(findCoconut);
+                  productsArray.push(findAlmond);
+                  productsArray.push(findSmoothies);
+                  productsArray.push(findBottles);
+                  productsArray.push(findDessert);
+
+                  localStorage.setItem("missmoo", JSON.stringify(productsArray));
+
                 });
 //Code common to all btn clicks
                 function afterBtnClick(btn, quest) {
@@ -173,5 +221,9 @@ $(document).ready(function () {
                   $(".form-group").removeAttr("style");
                   $(btn).addClass("btn-danger");
 
+                }
+                function sumProfit() {
+                  var profit = findPeanut.profit + findSunflower.profit + findYam.profit + findCashew.profit + findCoconut.profit + findAlmond.profit + findDessert.profit
+                  $("#profit").html("Profit" + ":<br>" + profit);
                 }
               });

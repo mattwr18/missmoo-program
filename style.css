@@ -12,7 +12,7 @@ li button {
   font-weight: bold;
   color: #20a2ff;
   font-size: 20px;
-  padding: 0 25px 0 10px;
+  padding: 0 19px 0 10px;
 
 }
 .stock {
@@ -24,7 +24,11 @@ li button {
 }
 #brand {
   color: #20f3ff;
-  margin: -50px 50px 0 100px;
+  margin: -50px 20px 0 0;
+}
+#bottleStock {
+  width: 114px;
+
 }
 body {
   background-color: black;
@@ -34,9 +38,6 @@ body {
   background-size: cover;
   -o-background-size: cover;
   height: 100%;
-}
-.btn-clicked {
-  background-color: green;
 }
 #coconutBtn, #almondBtn {
   margin-left: 130px;
